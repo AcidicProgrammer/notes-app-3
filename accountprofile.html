@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang = "en" dir = "ltr">
+  <head>
+
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+    <meta charset="utf-8">
+    <title>Account Profile</title>
+    <link rel = "stylesheet" href = "style.css">
+    <script src="script.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Short+Stack&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div id = "side">
+      <br>
+      <div id = "alignment2">
+      <div>
+      <div id = "username-direction">
+      <p id = "username-Here2"></p>
+      </div>
+      <br>
+      <div id = "title-direction">
+      <div id = "the"> <text id = "title1">THE</div>
+      <div id = "move">
+      <text id = "notestitle">NOTES</text>
+      <text id = "sitetitle">Site</text>
+      <text id = "exclaimtitle">!</text>
+      </div>
+      </div>
+      </div>
+      </div>
+      <br>
+      <div id = "content-Container">
+      <h4 id = "my-bio"> Hairum Qureshi is the creator of "The Notes Site". At just 16 years old and months of hard work and understanding on how to program better in JavaScript, he managed to make it through his trialing endeavor of facing tough challenges to make certain things work to a reality. It's even evident he learned a lot more and is beginning to face a bit more comfident in terms of understanding JavaScript better. Though there are still many, many things to learn in the face of JavaScript, he's confident with more hard work, determination and patience, in a few years, he'll become even more fluent. (Though he really should go back to reviewing CSS styling, I mean, look at the styling on this page...) Currently, he has reached the 396th line of JavaScript code on this site (as of 10/21/20). This is a record considering he has never reached that high of a number in terms of JavaScript lines of code on any of his other projects. He hopes to look back at this site in the future with even more experience and maybe cut the unnecessary lines, or even rewrite some lines so they appear shorter. A notepad site was definitely a thing Hairum has always wanted to make before. Not solely for himself though, for the benefit of others, too. His previous project didn't go that well and he had abandoned it, not knowing where he could go. But, after some reviewing, learning and time, he managed to revive it with the same logo from his old notepad project. He slayed that old project by a long shot! He even beat his ultimate CSS record of 592 lines as of 10/21/20! He plans to make a more modern looking notes site in the coming future after he's finished with this project!</h4>
+      </div>
+
+     <div id = "bio-direction">
+      <h1 id = "title-bio"><u>Create Your Biography!</u></h1>
+      <main class = "main">
+      <div>
+      <textarea maxlength = "3000" id = "yourbio" rows = "4" cols = "70" placeholder = "Write your bio!"
+      onkeyup = "charcounts('yourbio','remaining');" onkeydown = "charcounts('yourbio','remaining');" onmouseout = "charcounts('yourbio','remaining');" onkeypress = "growTextbox(this);"></textarea>
+      </div>
+      <br>
+      <div id = "textCount">
+       <text id = "sharedText">You Have: <span id = "remaining">0</span><text id = "sharedText">/3000 Characters</text> <text id = "sharedText">Remaining</text>
+       <br>
+     <progress id="textCountMeter" value="0" min="0" max="3000"></progress>
+      </main>
+      </div>
+     </div>
+    </div>
+    <div id = "btnDirec">
+    <input type = "button" onClick = "saveBio()"  value = "Edit" id = "savebioBtn">
+   </div>
+
+
+   <script>
+   var c = document.getElementById("username-Here2").innerHTML = localStorage.getItem('username');
+   </script>
+
+
+  </body>
+</html>
