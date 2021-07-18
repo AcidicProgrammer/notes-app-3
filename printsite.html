@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang = "en" dir = "ltr">
+
+  <head>
+
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+    <meta charset = "utf-8">
+    <title>The Notepad Site - Printing</title>
+
+    <style>
+
+      #printbox {
+        word-wrap: break-word;
+        overflow: auto;
+      }
+
+    </style>
+
+
+  </head>
+
+  <body>
+
+    <div id = "printbox" contenteditable = "false"><p id = "printText">Text Here</p></div>
+
+
+  <script>
+
+    document.getElementById("printText").addEventListener("click", displayNotes);
+
+  function displayNotes() {
+    document.getElementById("printText").innerHTML = localStorage.getItem("savetext");
+  }
+
+ window.onload = displayNotes();
+ print();
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

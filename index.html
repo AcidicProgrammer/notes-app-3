@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name = "viewport" content = "width = device - width, initial - scale = 1">
+
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+
+    <link rel = "stylesheet" href = "style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Short+Stack&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+
+    <title>The Notepad Site</title>
+
+  </head>
+
+  <body>
+    <div id = "title">
+      <div id = "thetitle"> <text id = "title1" align = "center">THE</div>
+        <text id = "title2" align = "center">NOTES</text>
+        <text id = "title3" style = align: "center">Site</text>
+        <text id = "title4" style = align: "center">!</text>
+    </div>
+    <div id = "printButton">
+      <div id = "infoButtons">
+        <div id = "button1">
+        <input type = "button" onclick = "logoutButton()" value = "Logout">
+        </div>
+          <br>
+        <div id = "button2">
+        <input type = "button" onclick = "accountButton()" value = "My Account">
+        </div>
+        <div id = "button3">
+          <input type = "button" id = "download" onclick = "downloadNotes()" value = "Download Notes">
+        </div>
+      </div>
+    <input type = "button" onclick = "printNotes()" value = "Print Notes">
+    </div>
+    <br>
+   <div id = "info2">
+      <input type = "button" onClick = "wordCount()" value = "Word Count">
+      Word Count: <text id = "count">0</text>
+      <br>
+      <br>
+      <text id = "greeting">Hello, </text><text id = "username-Here"></text>
+      <br>
+      <br>
+     <div id = "info2part2">
+       <text id = "checker">Notes saved: </text><text id = "confirmation-Here"></text>
+       <br>
+     <div id = "modification">
+       <p id = "lastModified"></p>
+     </div>
+    </div>
+   </div>
+
+    <script>
+
+    var h = document.getElementById("username-Here").innerHTML = localStorage.getItem('username');
+
+
+    if(localStorage.getItem("savetext")) {
+      var yes = "Yes";
+      document.getElementById("confirmation-Here").innerHTML = yes.fontcolor("green");
+      var lastModified = document.getElementById("lastModified").innerHTML = document.lastModified;
+    }
+    else {
+      var no = "No";
+      document.getElementById("confirmation-Here").innerHTML = no.fontcolor("red");
+    }
+
+
+    </script>
+
+   <!--
+    <br>
+    <a href = "todo.html">To-Do Site</a>
+    <br>
+    <a href = "notecardsite.html">Index Card Site</a>
+    </div>
+   -->
+
+    <div class = "test">
+      <br>
+      <button id = "customizations" onclick = "document.execCommand('italic', false, null)" title = "Italicize Highlighted Text"><i>I</i>
+      </button>
+
+      <button id = "customizations" onclick = "document.execCommand('bold', false, null)" title = "Bold Highlighted Text"><b>B</b>
+      </button>
+
+      <button id = "customizations" onclick = "document.execCommand('underline', false, null)" title = "Underline Highlighted Text"><u>U</u>
+      </button>
+
+      <button id = "customizations" onclick = "document.execCommand('strikethrough', false, null)" title = "Strike through"><strike>S</strike>
+      </button>
+
+      <button id = "ordered-list" onclick = "document.execCommand('insertOrderedList', false, null)" title = "Ordered List">Ordered
+      </button>
+
+      <button id = "unorderedlist" onclick = "document.execCommand('insertUnorderedList', false, null)" title = "Unordered list">Unordered
+      </button>
+
+      <select id = "script" onchange = "scriptTypes()" title = "Scripts">
+      <option value = "subscript" id = "subscript">Subscript</option>
+      <option value = "superscript" id = "superscrift">Superscript</option>
+      <option value = "normal" id = "normal">Normal</option>
+      </select>
+
+      <select id = "alignment" onchange = "alignment()" title = "Alignment">
+      <option value = "Left" id = "left">Left</option>
+      <option value = "Center" id = "center">Center</option>
+      <option value = "Right" id = "right">Right</option>
+      </select>
+
+      <select id = "fonts" onchange = "fontStyles()" title = "Fonts">
+      <option value = "Title" id = "tnr">-Fonts-</option>
+      <option value = "Times New Roman" id = "tnr">Times New Roman</option>
+      <option value = "Monospace" id = "mono">Monospace</option>
+      <option value = "Sans-Serif" id = "sans">Sans Serif</option>
+      </select>
+
+      <select id="fonts-size" onchange = "fontSizes()" title = "Font Size">
+      <option value = "3" id = "three">3</option>
+      <option value = "4" id = "four">4</option>
+      <option value = "5" id = "five">5</option>
+      </select>
+
+      <select id = "background-color" onchange = "backgroundColor()" title = "Background color">
+      <option value = "White" id = "white">White (Default)</option>
+      <option value = "Green" id = "green">Green</option>
+      <option value = "Blue" id = "blue">Blue</option>
+      <option value = "Yellow" id = "yellow">Yellow</option>
+      </select>
+
+      <select id = "text-color" onchange = "textColors()" title = "Text color">
+      <option value = "White" id = "white">White</option>
+      <option value = "Red" id = "red">Red</option>
+      <option value = "Blue" id = "blue">Blue</option>
+      <option value = "Black" id = "black">Black</option>
+      <option value = "Purple" id = "purple">Purple</option>
+      <option value = "Green" id = "green">Green</option>
+      </select>
+
+      <button id = "deleteAll" button onclick = "reset()" title = "Delete Saved Notes">Delete S.N.</button>
+
+      <button id = "saveButton" button onclick = "save()">Save Notes</button>
+
+      <button id = "loadButton" button onclick = "loadsaved()">Load Saved Notes</button>
+
+    </div>
+      </br>
+
+    <div id = "text" contenteditable = "true"></div>
+
+
+  </body>
+</html>
